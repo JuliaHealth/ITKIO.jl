@@ -18,7 +18,7 @@ function loadSpatialMetaData(filePath::String)
   imgOrigin = Tuple(Float64.(getOrigin(img)))
   imgSpacing = Tuple(Float64.(getSpacing(img)))
   imgSize = Tuple(Int64.(getSize(img)))
-  imgDirection = NTuple(Float64.(getDirection(img)))
+  imgDirection = NTuple{9,Float64}(map(Float64, getDirection(img)))
 
   return DataStructs.SpatialMetaData(imgOrigin, imgSpacing, imgSize, imgDirection)
 end
