@@ -16,6 +16,9 @@ spatialMeta.origin
 spatialMeta.spacing
 
 spatialMeta.size
+
+spatialMeta.direction
+
 ```
 
 Loading Voxel data from an image file path and spatial meta data

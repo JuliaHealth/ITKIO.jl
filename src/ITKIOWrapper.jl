@@ -18,8 +18,9 @@ function loadSpatialMetaData(filePath::String)
   imgOrigin = Tuple(Float64.(getOrigin(img)))
   imgSpacing = Tuple(Float64.(getSpacing(img)))
   imgSize = Tuple(Int64.(getSize(img)))
-  
-  return DataStructs.SpatialMetaData(imgOrigin, imgSpacing, imgSize)
+  imgDirection = NTuple{9,Float64}(map(Float64, getDirection(img)))
+
+  return DataStructs.SpatialMetaData(imgOrigin, imgSpacing, imgSize, imgDirection)
 end
 
 function loadVoxelData(filePath::String, spatMeta::DataStructs.SpatialMetaData)
